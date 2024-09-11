@@ -45,7 +45,7 @@ func (this *shacal2Cipher) Encrypt(dst, src []byte) {
         panic("shacal2: output not full block")
     }
 
-    if alias.InexactOverlap(dst[:BlockSize], src[:BlockSize]) {
+    if subtle.InexactOverlap(dst[:BlockSize], src[:BlockSize]) {
         panic("shacal2: invalid buffer overlap")
     }
 
@@ -61,7 +61,7 @@ func (this *shacal2Cipher) Decrypt(dst, src []byte) {
         panic("shacal2: output not full block")
     }
 
-    if alias.InexactOverlap(dst[:BlockSize], src[:BlockSize]) {
+    if subtle.InexactOverlap(dst[:BlockSize], src[:BlockSize]) {
         panic("shacal2: invalid buffer overlap")
     }
 
